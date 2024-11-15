@@ -1,6 +1,7 @@
-# Terraform Tutorial: Infrastructure as Code (IaC) with Terraform
+# Terraform Tutorial: Infrastructure as Code (IaC) with Terraform Step by step
 
 [All of the official documentation for this tutorial can be found here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+
 Terraform is an open-source tool for automating infrastructure management. It allows you to define your infrastructure as code and manage it across various cloud providers (like AWS, Azure, Google Cloud, etc.) and other services.
 
 ---
@@ -8,6 +9,7 @@ Terraform is an open-source tool for automating infrastructure management. It al
 ## Prerequisites
 
 1. **Install Terraform**
+
    You can install Terraform following the [official website](https://developer.hashicorp.com/terraform/install)
 
    For Ubuntu, use apt:
@@ -26,6 +28,7 @@ Terraform is an open-source tool for automating infrastructure management. It al
    ```
 
 2. **Cloud provider account**
+
    This tutorial will use AWS as an example, but you can apply similar concepts to other cloud providers by adjusting the provider configuration.
 
 3. **Install AWS CLI (if using AWS) and configure it or export variables**
@@ -77,6 +80,8 @@ provider "aws" {
 
 This tells Terraform to use the AWS provider in the `us-east-1` region.
 
+AWS secrets can also be passed here. But for this example we need to export the secrets in the terminal.
+
 ---
 
 ## Step 3: Create AWS Resources
@@ -102,6 +107,7 @@ resource "aws_instance" "my_instance" {
 - `ami`: Amazon Machine Image ID. You'll need to find a valid AMI ID for your region. The selected AMI is the image for Ubuntu 24.04 LTS in us-east-1, [search for AMIs here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html)
 - `instance_type`: The type of EC2 instance, here we're using `t2.micro`, which is eligible for the AWS Free Tier.
 - `tags`: Tags for your instance to give it a name and other identifiers.
+
 More details about "aws_instance" resource in [the documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance).
 
 ---
@@ -450,3 +456,5 @@ resource "aws_instance" "my_instance" {
 2. [Manage multiple environments with Workspaces](https://developer.hashicorp.com/terraform/language/state/workspaces)
 
 3. [How to manage secrets correctly](https://spacelift.io/blog/terraform-secrets)
+
+4. [Implement other AWS resources following the official documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
