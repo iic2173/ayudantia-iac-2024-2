@@ -436,7 +436,17 @@ resource "aws_instance" "my_instance" {
    Terraform maintains the state of your infrastructure in a state file (`terraform.tfstate`). You should secure this file or store it in remote backends like AWS S3 to prevent data loss. Remote backends also allow multiple team members to collaborate on the same infrastructure.
 
 2. **Modules**
-   As your infrastructure grows, you can modularize your Terraform code by breaking it into reusable modules. This promotes better organization and scalability.
+   As your infrastructure grows, you can should your Terraform code by breaking it into reusable modules. This promotes better organization and scalability.
 
 3. **Variables**
    You can use variables to make your configuration more flexible. For example, you could use variables for the region or instance type, instead of hardcoding them.
+
+---
+
+## Learn more
+
+1. [How to pass variables from files and more](https://developer.hashicorp.com/terraform/language/values/variables)
+
+2. [Manage multiple environments with Workspaces](https://developer.hashicorp.com/terraform/language/state/workspaces)
+
+3. [How to manage secrets correctly](https://spacelift.io/blog/terraform-secrets)
