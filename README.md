@@ -324,7 +324,7 @@ resource "aws_instance" "my_instance" {
 
 ### Create an Elastic IP
 
-Add the following resource to allocate and associate an Elastic IP with your EC2 instance:
+Add the following resource to allocate, associate an Elastic IP with your EC2 instance and print it in the console so we know the IP:
 
 ```hcl
 resource "aws_eip" "my_eip" {
@@ -334,6 +334,10 @@ resource "aws_eip" "my_eip" {
 resource "aws_eip_association" "my_eip_association" {
   instance_id   = aws_instance.my_instance.id
   allocation_id = aws_eip.my_eip.id
+}
+
+output "elastic_ip" {
+  value = aws_eip.my_eip.public_ip
 }
 ```
 
